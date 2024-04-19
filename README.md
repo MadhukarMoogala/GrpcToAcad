@@ -2,8 +2,6 @@
 
 This project demonstrates how to talk with gRPC server from AutoCAD plugin client.
 
-
-
 ### Client
 
 .NET 8.0 plugin for AutoCAD 2025.
@@ -35,7 +33,9 @@ public class Entry
 - In this particular code, the `HelloRequest` has its `Name` property set to "GreeterClient".
 
 - The code awaits the response (`reply`) from the `SayHelloAsync` call.
+
 - It then extracts the `Message` property  from the `reply` object.
+
 - Finally, it uses the document editor (`ed.WriteMessage`) to write a formatted message ("Greeting:{reply.Message}") into the active AutoCAD document.
 
 ### Protobuf
@@ -82,15 +82,12 @@ var app = builder.Build();
 app.MapGrpcService<GreeterService>();
 app.MapGet("/", () => "Hello Autodesk!");
 app.Run();
-
 ```
 
 - Expose the `GreeterService` as a gRPC service, allowing clients to send `SayHello` requests and receive greetings.
 - Provide a basic HTTP endpoint at the root path for potential testing or informational purposes.
 
 When you run this application, it will act as a gRPC server and an HTTP server at the same time. Clients can interact with the `GreeterService` using gRPC clients, while you can also access the root path using a web browser or other HTTP clients to get the "Hello Autodesk!" message.
-
-
 
 ### Service
 
@@ -113,8 +110,6 @@ public class GreeterService : Greeter.GreeterBase
 }
 ```
 
-
-
 - When a client sends a `SayHello` request to the gRPC server, an instance of the `GreeterService` class will be used to handle the request.
 - The `SayHello` method extracts the client's name from the `request` object.
 - It constructs a `HelloReply` message with a personalized greeting ("Hello" + client's name).
@@ -123,21 +118,29 @@ public class GreeterService : Greeter.GreeterBase
 ### Build Instructions
 
 ```bash
-
+git clone https://github.com/MadhukarMoogala/GrpcToAcad.git
+cd GrpcToAcad
+dotnet build acadClient -c Debug -a x64
+dotnet build GrpcGreeterService -c Debug -a x64
 ```
 
 ### Usage Instructions
 
-```bash
+- Start gRPC server    
+  
+  ```bash
+  cd GrpcGreeterService
+  dotnet run
+  ```
 
-```
+- Launch AutoCAD 2025
+  
+  - NETLOAD `acadClient.dll`
+  - Run `TestGrpc`
 
 ![GrpcToAcad](https://github.com/MadhukarMoogala/GrpcToAcad/assets/6602398/e8bf0699-0c4d-4a3d-973a-506e420a594f)
 
-
 ### License
-
-
 
 This sample is licensed under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
