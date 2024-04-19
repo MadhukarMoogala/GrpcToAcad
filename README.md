@@ -123,62 +123,16 @@ public class GreeterService : Greeter.GreeterBase
 ### Build Instructions
 
 ```bash
-git clone https://github.com/MadhukarMoogala/GrpcToAcad.git
-cd GrpcToAcad
-dotnet build acadClient -c Debug -a x64
-dotnet build GrpcGreeterService -c Debug -a x64
-```
 
-- Build Log
-
-```bash
-MSBuild version 17.8.3+195e7f5a3 for .NET
-  Determining projects to restore...
-  All projects are up-to-date for restore.
-  acadClient -> D:\Work\Cases\22161810\GrpcToAcad\acadClient\bin\Debug\net8.0-windows\win-x64\acadClient.dll
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.53
-
-```
-
-```bash
-MSBuild version 17.8.3+195e7f5a3 for .NET
-  Determining projects to restore...
-  All projects are up-to-date for restore.
-  GrpcGreeterService -> D:\Work\Cases\22161810\GrpcToAcad\GrpcGreeterService\bin\Debug\net8.0\win-x64\GrpcGreeterService.dll
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.78
 ```
 
 ### Usage Instructions
 
-
-
-Start  gRPC server
-
 ```bash
-cd GrpcGreeterService
-dotnet run GrpcGreeterService
+
 ```
 
-Launch AutoCAD 2025
-
-NETLOAD the acadClient .dll generated from previous build
-
-Run `TestGrpc`
-
-
-
-
-
+![GrpcToAcad](https://github.com/MadhukarMoogala/GrpcToAcad/assets/6602398/e8bf0699-0c4d-4a3d-973a-506e420a594f)
 
 
 ### License
