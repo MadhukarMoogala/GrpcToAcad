@@ -1,6 +1,7 @@
 # Integrating gRPC.NET with AutoCAD
 
 This project demonstrates how to talk with gRPC server from AutoCAD plugin client.
+- GreeterService is sample based on [Microsoft example app](https://learn.microsoft.com/en-us/aspnet/core/tutorials/grpc/grpc-start?view=aspnetcore-8.0&tabs=visual-studio#create-a-grpc-service)
 
 ### Client
 
